@@ -45,6 +45,12 @@ if __name__ == "__main__":
         name=DISTNAME,
         version=VERSION,
         include_package_data=True,
+        package_data={
+            'scikits': [
+                'crab/datasets/data/*.*',
+                'crab/datasets/descr/*.*',
+                ]
+            },
         install_requires='numpy',
         namespace_packages=['scikits'],
         maintainer=MAINTAINER,
