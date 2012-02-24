@@ -25,7 +25,7 @@ def configuration(parent_package='', top_path=None):
 
     from numpy.distutils.misc_util import Configuration
     config = Configuration(None, parent_package, top_path,
-             namespace_package=['scikits'])
+        namespace_packages=['scikits'])
 
     config.set_options(
                 ignore_setup_xxx_py=True,
@@ -42,19 +42,24 @@ def configuration(parent_package='', top_path=None):
 
 if __name__ == "__main__":
     setup(configuration=configuration,
-        name=DISTNAME,
-        version=VERSION,
-        include_package_data=True,
-        install_requires='numpy',
-        namespace_packages=['scikits'],
-        maintainer=MAINTAINER,
-        maintainer_email=MAINTAINER_EMAIL,
-        description=DESCRIPTION,
-        license=LICENSE,
-        url=URL,
-        download_url=DOWNLOAD_URL,
-        long_description=LONG_DESCRIPTION,
-        zip_safe=False,  # the package can run out of an .egg file
+          name=DISTNAME,
+          include_package_data=True,
+          package_data={
+              'scikits': [
+                  'crab/datasets/data/*.*',
+                  'crab/datasets/descr/*.*',
+                  ]
+              },
+          install_requires='numpy',
+          maintainer=MAINTAINER,
+          maintainer_email=MAINTAINER_EMAIL,
+          description=DESCRIPTION,
+          license=LICENSE,
+          url=URL,
+          version=VERSION,
+          download_url=DOWNLOAD_URL,
+          long_description=LONG_DESCRIPTION,
+          zip_safe=False,  # the package can run out of an .egg file
           classifiers=[
               'Intended Audience :: Science/Research',
               'Intended Audience :: Developers',
@@ -67,4 +72,5 @@ if __name__ == "__main__":
               'Operating System :: POSIX',
               'Operating System :: Unix',
               'Operating System :: MacOS'
-             ])
+             ]
+    )
