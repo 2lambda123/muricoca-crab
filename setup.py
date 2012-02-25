@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import sys
 
 descr = """Crab is a flexible, fast recommender engine for Python. The engine
   aims to provide a rich set of components from which you can construct a
@@ -41,6 +42,10 @@ def configuration(parent_package='', top_path=None):
     return config
 
 if __name__ == "__main__":
+    local_path = os.path.dirname(os.path.abspath(sys.argv[0]))
+    os.chdir(local_path)
+    sys.path.insert(0, local_path)
+
     setup(configuration=configuration,
         name=DISTNAME,
         version=VERSION,
