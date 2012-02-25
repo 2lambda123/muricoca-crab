@@ -17,7 +17,6 @@ LICENSE = 'new BSD'
 DOWNLOAD_URL = "http://pypi.python.org/pypi/crab"
 VERSION = '0.1'
 
-import setuptools  # we are using a setuptools namespace
 from numpy.distutils.core import setup
 
 
@@ -29,16 +28,15 @@ def configuration(parent_package='', top_path=None):
     config = Configuration(None, parent_package, top_path,
         namespace_packages=['scikits'])
 
-    #config.set_options(
-    #            ignore_setup_xxx_py=True,
-    #            assume_default_configuration=True,
-    #            delegate_options_to_subpackages=True,
-    #            quiet=True,
-    #)
+    config.set_options(
+                ignore_setup_xxx_py=True,
+                assume_default_configuration=True,
+                delegate_options_to_subpackages=True,
+                quiet=True,
+    )
 
-    #subpackages = ['.'.join(i[0].split('/')) for i in os.walk('scikits') if '__init__.py' in i[2]]
-    #[config.add_subpackage(sub_package) for sub_package in subpackages]
-    config.add_subpackage('scikits.crab')
+    subpackages = ['.'.join(i[0].split('/')) for i in os.walk('scikits') if '__init__.py' in i[2]]
+    [config.add_subpackage(sub_package) for sub_package in subpackages]
     config.add_data_files('scikits/__init__.py')
 
     return config
