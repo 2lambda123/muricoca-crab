@@ -26,7 +26,7 @@ def configuration(parent_package='', top_path=None):
 
     from numpy.distutils.misc_util import Configuration
     config = Configuration(None, parent_package, top_path,
-             namespace_package=['scikits'])
+             namespace_packages=['scikits'])
 
     config.set_options(
                 ignore_setup_xxx_py=True,
