@@ -5,6 +5,8 @@ possible candidate to be recommended.
 Please check the base.BaseCandidateItemsStrategy before
 implement your own strategy.
 
+Test added by WF.
+
 """
 
 # Author: Marcel Caraciolo <marcel@muricoca.com>

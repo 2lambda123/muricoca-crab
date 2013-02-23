@@ -91,6 +91,8 @@ class UserSimilarity(BaseSimilarity):
     [('Marcel Caraciolo', 1.0), ('Sheldom', 0.99127582693458016),
       ('Lorena Abreu', 0.98658676452792504)]
 
+   test.
+
    '''
 
     def __init__(self, model, distance, num_best=None):
