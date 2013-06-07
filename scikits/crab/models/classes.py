@@ -123,13 +123,15 @@ class MatrixPreferenceDataModel(BaseDataModel):
                     (self._user_ids.size, self._item_ids.size))
 
         self.index = np.empty(shape=(self._user_ids.size, self._item_ids.size))
+        self.index[:] = np.NaN
+        itemnos = {}
+
         for userno, user_id in enumerate(self._user_ids):
             if userno % 2 == 0:
                 logger.debug("PROGRESS: at user_id #%i/%i" %  \
                     (userno, self._user_ids.size))
-            for itemno, item_id in enumerate(self._item_ids):
-                r = self.dataset[user_id].get(item_id, np.NaN) #Is it to be np.NaN or 0 ?!!
-                self.index[userno, itemno] = r
+            for item_id, r in self.dataset[user_id].items():
+                self.index[userno, itemnos[item_id]] = r
 
         if self.index.size:
             self.max_pref = np.nanmax(self.index)
