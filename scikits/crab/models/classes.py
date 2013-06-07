@@ -126,6 +126,9 @@ class MatrixPreferenceDataModel(BaseDataModel):
         self.index[:] = np.NaN
         itemnos = {}
 
+        for itemno, item_id in enumerate(self._item_ids):
+            itemnos[item_id] = itemno
+
         for userno, user_id in enumerate(self._user_ids):
             if userno % 2 == 0:
                 logger.debug("PROGRESS: at user_id #%i/%i" %  \
