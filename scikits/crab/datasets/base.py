@@ -91,7 +91,13 @@ def load_movielens_r100k(load_timestamp=False):
 
 
 def load_csv(filename, delimiter=None, datatype=None, description=None, description_filename=None):
-    # Read data
+    """ Utility function for loading in a csv
+        (used below for sample movies/songs)
+
+        Expects csv files in format:
+        username,itemname,rating
+        (can specify custom delimiters/datatypes/etc.)
+    """
     if not delimiter:
         delimiter = ','
     if not datatype:
