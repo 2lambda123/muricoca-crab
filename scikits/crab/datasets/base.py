@@ -90,6 +90,52 @@ def load_movielens_r100k(load_timestamp=False):
                  user_ids=None, DESCR=fdescr.read())
 
 
+def load_csv(filename, delimiter=None, datatype=None, description=None, description_filename=None):
+    """ Utility function for loading in a csv
+        (used below for sample movies/songs)
+
+        Expects csv files in format:
+        username,itemname,rating
+        (can specify custom delimiters/datatypes/etc.)
+    """
+    if not delimiter:
+        delimiter = ','
+    if not datatype:
+        datatype = str
+    data_m = np.loadtxt(filename,
+                        delimiter=delimiter,
+                        dtype=datatype,)
+    item_ids = []
+    user_ids = []
+    data_songs = {}
+    for user_id, item_id, rating in data_m:
+        if user_id not in user_ids:
+            user_ids.append(user_id)
+        if item_id not in item_ids:
+            item_ids.append(item_id)
+        u_ix = user_ids.index(user_id) + 1
+        i_ix = item_ids.index(item_id) + 1
+        data_songs.setdefault(u_ix, {})
+        data_songs[u_ix][i_ix] = float(rating)
+
+    data_t = []
+    for no, item_id in enumerate(item_ids):
+        data_t.append((no + 1, item_id))
+    data_titles = dict(data_t)
+
+    data_u = []
+    for no, user_id in enumerate(user_ids):
+        data_u.append((no + 1, user_id))
+    data_users = dict(data_u)
+
+    if not description and description_filename:
+        with open(description_filename) as fp:
+            description = fp.read()
+
+    return Bunch(data=data_songs, item_ids=data_titles,
+                 user_ids=data_users, DESCR=description)
+
+
 def load_sample_songs():
     """ Load and return the songs dataset with
          49 ratings (only the user ids, item ids and ratings).
@@ -119,38 +165,12 @@ def load_sample_songs():
     8
 
     """
-    base_dir = join(dirname(__file__), 'data/')
-
-    #Read data
-    data_m = np.loadtxt(base_dir + 'sample_songs.csv',
-                delimiter=',', dtype=str)
-    item_ids = []
-    user_ids = []
-    data_songs = {}
-    for user_id, item_id, rating in data_m:
-        if user_id not in user_ids:
-            user_ids.append(user_id)
-        if item_id not in item_ids:
-            item_ids.append(item_id)
-        u_ix = user_ids.index(user_id) + 1
-        i_ix = item_ids.index(item_id) + 1
-        data_songs.setdefault(u_ix, {})
-        data_songs[u_ix][i_ix] = float(rating)
-
-    data_t = []
-    for no, item_id in enumerate(item_ids):
-        data_t.append((no + 1, item_id))
-    data_titles = dict(data_t)
-
-    data_u = []
-    for no, user_id in enumerate(user_ids):
-        data_u.append((no + 1, user_id))
-    data_users = dict(data_u)
-
-    fdescr = open(dirname(__file__) + '/descr/sample_songs.rst')
-
-    return Bunch(data=data_songs, item_ids=data_titles,
-                 user_ids=data_users, DESCR=fdescr.read())
+    filename = join(dirname(__file__), 'data/') + 'sample_songs.csv'
+    description_filename = dirname(__file__) + '/descr/sample_songs.rst'
+    return load_csv(filename,
+                    delimiter=',',
+                    datatype=str,
+                    description_filename=description_filename)
 
 
 def load_sample_movies():
@@ -182,35 +202,9 @@ def load_sample_movies():
     6
 
     """
-    base_dir = join(dirname(__file__), 'data/')
-
-    #Read data
-    data_m = np.loadtxt(base_dir + 'sample_movies.csv',
-                delimiter=';', dtype=str)
-    item_ids = []
-    user_ids = []
-    data_songs = {}
-    for user_id, item_id, rating in data_m:
-        if user_id not in user_ids:
-            user_ids.append(user_id)
-        if item_id not in item_ids:
-            item_ids.append(item_id)
-        u_ix = user_ids.index(user_id) + 1
-        i_ix = item_ids.index(item_id) + 1
-        data_songs.setdefault(u_ix, {})
-        data_songs[u_ix][i_ix] = float(rating)
-
-    data_t = []
-    for no, item_id in enumerate(item_ids):
-        data_t.append((no + 1, item_id))
-    data_titles = dict(data_t)
-
-    data_u = []
-    for no, user_id in enumerate(user_ids):
-        data_u.append((no + 1, user_id))
-    data_users = dict(data_u)
-
-    fdescr = open(dirname(__file__) + '/descr/sample_movies.rst')
-
-    return Bunch(data=data_songs, item_ids=data_titles,
-                 user_ids=data_users, DESCR=fdescr.read())
+    filename = join(dirname(__file__), 'data/') + 'sample_movies.csv'
+    description_filename = dirname(__file__) + '/descr/sample_movies.rst'
+    return load_csv(filename,
+                    delimiter=',',
+                    datatype=str,
+                    description_filename=description_filename)
