@@ -7,7 +7,7 @@
 
   This fork aims to correct the source code in order to work with modern versions of Python and scikits-learn.
   
-  For details, see the [original GitHub repository](https://github.com/muricoca/crab/)
+  For details, see the [original GitHub repository](https://github.com/muricoca/crab/).
 
 ## LICENCE (BSD)
 
