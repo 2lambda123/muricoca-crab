@@ -8,7 +8,7 @@ descr = """Crab is a flexible, fast recommender engine for Python. The engine
 
 DISTNAME = 'scikits.crab'
 DESCRIPTION = 'A recommender engine for Python.'
-LONG_DESCRIPTION = open('README.md').read()
+LONG_DESCRIPTION = open('README.md', encoding="utf8").read()
 MAINTAINER = 'Marcel Caraciolo',
 MAINTAINER_EMAIL = 'marcel@muricoca.com',
 URL = 'http://muricoca.github.com/crab/'
