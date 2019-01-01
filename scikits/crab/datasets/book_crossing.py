@@ -116,7 +116,7 @@ def load_bookcrossings(data_home=None, download_if_missing=True,
         if not os.path.exists(os.path.join(data_home, 'BX-Book-Ratings.csv')) \
             and not open(os.path.join(data_home, 'BX-Books.csv')):
             raise IOError
-    except Exception, e:
+    except Exception as e:
         print 80 * '_'
         print 'Loading files failed'
         print 80 * '_'
