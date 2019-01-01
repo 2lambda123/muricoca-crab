@@ -117,18 +117,18 @@ def load_bookcrossings(data_home=None, download_if_missing=True,
             and not open(os.path.join(data_home, 'BX-Books.csv')):
             raise IOError
     except Exception as e:
-        print 80 * '_'
-        print 'Loading files failed'
-        print 80 * '_'
-        print e
+        print ( 80 * '_')
+        print ('Loading files failed')
+        print (80 * '_')
+        print (e)
 
         if download_if_missing:
-            print 'downloading the dataset...'
+            print ('downloading the dataset...')
             try:
                 download_book_crossings(data_home)
             except:
                 raise Exception('FAIL: Problems during the download.')
-            print 'dataset downloaded.'
+            print ('dataset downloaded.')
         else:
             raise IOError('Book-Crossing dataset not found')
 
