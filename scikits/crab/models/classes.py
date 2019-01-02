@@ -105,7 +105,7 @@ class MatrixPreferenceDataModel(BaseDataModel):
              Build the data model
         '''
         #Is it important to store as numpy array ?
-        myListOKeys =[k for k,_ in movies.self.dataset.items()]
+        myListOKeys =[k for k,_ in self.dataset.items()]
         self._user_ids = np.asanyarray(myListOKeys)
         self._user_ids.sort()
 
