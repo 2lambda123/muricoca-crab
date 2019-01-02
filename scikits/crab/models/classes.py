@@ -113,9 +113,12 @@ class MatrixPreferenceDataModel(BaseDataModel):
         self._item_ids = []
         print("**this is for test****")
         print(self.dataset)
+        print(self.dataset.values().keys)
         print("*** this was for test***")
-        for items in self.dataset.items():
-            self._item_ids.extend(items.keys())
+                
+
+        for dictVal in self.dataset.values():
+            self._item_ids.extend(dictVal.keys())
 
         self._item_ids = np.unique(np.array(self._item_ids))
         self._item_ids.sort()
