@@ -111,7 +111,10 @@ class MatrixPreferenceDataModel(BaseDataModel):
 
         #Is it important to store as numpy array ?
         self._item_ids = []
-        for items in self.dataset.itervalues():
+        print("**this is for test****")
+        print(self.dataset)
+        print("*** this was for test***")
+        for items in self.dataset.items():
             self._item_ids.extend(items.keys())
 
         self._item_ids = np.unique(np.array(self._item_ids))
