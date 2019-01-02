@@ -14,7 +14,7 @@ can be subclassed).
 #
 # License: BSD Style.
 
-from base import ItemRecommender, UserRecommender
+from .base import ItemRecommender, UserRecommender
 from item_strategies import ItemsNeighborhoodStrategy
 from neighborhood_strategies import NearestNeighborsStrategy
 import numpy as np
