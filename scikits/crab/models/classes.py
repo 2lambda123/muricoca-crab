@@ -111,11 +111,7 @@ class MatrixPreferenceDataModel(BaseDataModel):
 
         #Is it important to store as numpy array ?
         self._item_ids = []
-        print("**this is for test****")
-        print(self.dataset)
-        print(self.dataset.values().keys)
-        print("*** this was for test***")
-                
+    
 
         #for dictVal in self.dataset.values():
          #   self._item_ids.extend(dictVal.keys())
