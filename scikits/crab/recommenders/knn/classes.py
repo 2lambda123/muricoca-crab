@@ -13,7 +13,7 @@ can be subclassed).
 # Author: Marcel Caraciolo <marcel@muricoca.com>
 #
 # License: BSD Style.
-
+from sklearn.base import BaseEstimator
 from .base import ItemRecommender, UserRecommender
 from .item_strategies import ItemsNeighborhoodStrategy
 from .neighborhood_strategies import NearestNeighborsStrategy
