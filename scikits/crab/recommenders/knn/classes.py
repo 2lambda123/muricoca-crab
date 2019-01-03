@@ -1,4 +1,3 @@
-"""
 Generalized Recommender models.
 
 This module contains basic memory recommender interfaces used throughout
@@ -598,6 +597,7 @@ class UserBasedRecommender(UserRecommender):
         '''
 
         self.set_params(**params)
+        print(**params)
 
         candidate_items = self.all_other_items(user_id, **params)
 
