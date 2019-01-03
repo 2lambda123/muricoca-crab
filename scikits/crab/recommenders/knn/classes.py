@@ -597,8 +597,8 @@ class UserBasedRecommender(UserRecommender):
 
         '''
 
-        #self._set_params(**params)
-        super(BaseEstimator, self)._set_params(**params)
+        self.set_params(**params)
+        #super(BaseEstimator, self).set_params(**params)
 
         candidate_items = self.all_other_items(user_id, **params)
 
