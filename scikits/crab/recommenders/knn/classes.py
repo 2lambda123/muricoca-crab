@@ -1,3 +1,4 @@
+"""
 Generalized Recommender models.
 
 This module contains basic memory recommender interfaces used throughout
