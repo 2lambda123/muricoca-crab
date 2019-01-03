@@ -533,8 +533,13 @@ class UserBasedRecommender(UserRecommender):
         prefs = np.array([self.model.preference_value(to_user_id, item_id)
                  for to_user_id in nearest_neighbors])
 
+        print("before***",prefs.shape)
+        print("similarities***",similarities.shape)
+
         prefs = prefs[~np.isnan(prefs)]
-        similarities = similarities[~np.isnan(prefs)]
+        print("after***",prefs.shape)
+        similarities = similarities[prefs]
+        #similarities = similarities[~np.isnan(prefs)]
 
         prefs_sim = np.sum(prefs[~np.isnan(similarities)] *
                              similarities[~np.isnan(similarities)])
@@ -598,7 +603,6 @@ class UserBasedRecommender(UserRecommender):
         '''
 
         self.set_params(**params)
-        print(**params)
 
         candidate_items = self.all_other_items(user_id, **params)
 
