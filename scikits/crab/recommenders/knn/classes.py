@@ -536,10 +536,9 @@ class UserBasedRecommender(UserRecommender):
         print("before***",prefs.shape)
         print("similarities***",similarities.shape)
 
-        prefs = prefs[~np.isnan(prefs)]
+      #  prefs = prefs[~np.isnan(prefs)]
         print("after***",prefs.shape)
-        similarities = similarities[prefs]
-        #similarities = similarities[~np.isnan(prefs)]
+        similarities = similarities[~np.isnan(prefs)]
 
         prefs_sim = np.sum(prefs[~np.isnan(similarities)] *
                              similarities[~np.isnan(similarities)])
