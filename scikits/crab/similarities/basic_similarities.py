@@ -21,7 +21,7 @@ def find_common_elements(source_preferences, target_preferences):
     srcKeys  = [k for k,_ in src.items()]
     tgtKeys  = [k for k,_ in tgt.items()]
     
-    inter = np.intersect1d(srckeys, tgtkeys)
+    inter = np.intersect1d(srcKeys, tgtKeys)
 
     common_preferences = zip(*[(src[item], tgt[item]) for item in inter \
             if not np.isnan(src[item]) and not np.isnan(tgt[item])])
