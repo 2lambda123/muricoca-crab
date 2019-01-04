@@ -40,7 +40,7 @@ import zipfile
 from os.path import dirname
 from os.path import join
 import numpy as np
-from base import Bunch
+from .base import Bunch
 import csv
 
 logger = logging.getLogger(__name__)
@@ -116,19 +116,19 @@ def load_bookcrossings(data_home=None, download_if_missing=True,
         if not os.path.exists(os.path.join(data_home, 'BX-Book-Ratings.csv')) \
             and not open(os.path.join(data_home, 'BX-Books.csv')):
             raise IOError
-    except Exception, e:
-        print 80 * '_'
-        print 'Loading files failed'
-        print 80 * '_'
-        print e
+    except Exception as e:
+        print ( 80 * '_')
+        print ('Loading files failed')
+        print (80 * '_')
+        print (e)
 
         if download_if_missing:
-            print 'downloading the dataset...'
+            print ('downloading the dataset...')
             try:
                 download_book_crossings(data_home)
             except:
                 raise Exception('FAIL: Problems during the download.')
-            print 'dataset downloaded.'
+            print ('dataset downloaded.')
         else:
             raise IOError('Book-Crossing dataset not found')
 

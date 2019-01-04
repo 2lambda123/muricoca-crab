@@ -13,10 +13,10 @@ can be subclassed).
 # Author: Marcel Caraciolo <marcel@muricoca.com>
 #
 # License: BSD Style.
-
-from base import ItemRecommender, UserRecommender
-from item_strategies import ItemsNeighborhoodStrategy
-from neighborhood_strategies import NearestNeighborsStrategy
+from sklearn.base import BaseEstimator
+from .base import ItemRecommender, UserRecommender
+from .item_strategies import ItemsNeighborhoodStrategy
+from .neighborhood_strategies import NearestNeighborsStrategy
 import numpy as np
 
 
@@ -533,8 +533,9 @@ class UserBasedRecommender(UserRecommender):
         prefs = np.array([self.model.preference_value(to_user_id, item_id)
                  for to_user_id in nearest_neighbors])
 
-        prefs = prefs[~np.isnan(prefs)]
-        similarities = similarities[~np.isnan(prefs)]
+       
+      #  prefs = prefs[~np.isnan(prefs)]
+      #  similarities = similarities[~np.isnan(prefs)]
 
         prefs_sim = np.sum(prefs[~np.isnan(similarities)] *
                              similarities[~np.isnan(similarities)])
@@ -597,7 +598,7 @@ class UserBasedRecommender(UserRecommender):
 
         '''
 
-        self._set_params(**params)
+        self.set_params(**params)
 
         candidate_items = self.all_other_items(user_id, **params)
 
