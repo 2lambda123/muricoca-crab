@@ -5,7 +5,7 @@
   to provide a rich set of components from which you can construct a customized recommender system from a 
   set of algorithms.
 
-  This fork aims to correct the source code in order to work with modern versions of Python and scikits-learn.
+  This fork aims to correct the source code in order to work with modern versions of Python and scikit-learn.
   
   For details, see the [original GitHub repository](https://github.com/muricoca/crab/).
 
