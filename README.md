@@ -5,43 +5,9 @@
   to provide a rich set of components from which you can construct a customized recommender system from a 
   set of algorithms.
 
-## Usage
-
-  For Usage and Instructions checkout the [Crab Wiki](https://github.com/muricoca/crab/wiki)
-
-## History
+  This fork aims to correct the source code in order to work with modern versions of Python and scikit-learn.
   
-  The project was started in 2010  by Marcel Caraciolo as a M.S.C related  project, and since then many people interested joined to help in the project.
-  It is currently maintained by a team of volunteers, members of the Muriçoca Labs.
-
-## Authors
-  
-  Marcel Caraciolo (marcel@muricoca.com)
-
-  Bruno Melo (bruno@muricoca.com)
-  
-  Ricardo Caspirro (ricardo@muricoca.com)
-  
-  Rodrigo Alves (rodrigo@muricoca.com)
-
-## Bugs, Feedback
-
-  Please submit bugs you might encounter, as well Patches and Features Requests to the [Issues Tracker](https://github.com/muricoca/crab/issues) located at GitHub.
-
-## Contributions
-
-  If you want to submit a patch to this project, it is AWESOME. Follow this guide:
-  
-  * Fork Crab
-  * Make your alterations and commit
-  * Create a topic branch - git checkout -b my_branch
-  * Push to your branch - git push origin my_branch
-  * Create a [Pull Request](http://help.github.com/pull-requests/) from your branch.
-  * You just contributed to the Crab project!
-
-## Wiki
-
-Please check our [Wiki](https://github.com/muricoca/crab/wiki "Crab Wiki") wiki, for further information on how to start developing or use Crab in your projects.
+  For details, see the [original GitHub repository](https://github.com/muricoca/crab/).
 
 ## LICENCE (BSD)
 
