@@ -45,7 +45,7 @@ def euclidean_distances(X, Y, squared=False, inverse=True):
     --------
     >>> from scikits.crab.metrics.pairwise import euclidean_distances
     >>> X = [[2.5, 3.5, 3.0, 3.5, 2.5, 3.0],[3.0, 3.5, 1.5, 5.0, 3.5,3.0]]
-    >>> # distrance between rows of X
+    >>> # distance between rows of X
     >>> euclidean_distances(X, X)
     array([[ 1.        ,  0.29429806],
            [ 0.29429806,  1.        ]])
