@@ -10,16 +10,12 @@ can be subclassed).
 
 """
 
-# Author: Marcel Caraciolo <marcel@muricoca.com>
-#
-# License: BSD Style.
-import random
-
 from base import SVDRecommender
 from ..knn.item_strategies import ItemsNeighborhoodStrategy
 import numpy as np
 from math import sqrt
 import logging
+import secrets
 
 logger = logging.getLogger('crab')
 
@@ -259,7 +255,7 @@ class MatrixFactorBasedRecommender(SVDRecommender):
 
     def learn_factors(self, update_user=True, update_item=True):
         rating_indices = self._rating_indices()
-        random.shuffle(rating_indices)
+        secrets.SystemRandom().shuffle(rating_indices)
 
         for index in range(self.n_interations):
             err = self._train(rating_indices, update_user, update_item)
